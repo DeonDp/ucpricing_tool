@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+
+
+{% block css %}
+
+<style type="text/css">
+
+  
+	img {
+
+		position: static;
+	}
+
+</style>
+
+{% endblock%}
+{% block main%}
+ 
+<div class="block1">
+
+	<img src="{{url_for('static', filename='MCWBusiness.jpeg')}}" width="300" height="200">
+
+	<h2> Welcome to CWCBUSSINNESS</h2>
+	<h2> Unified Communications</h2>
+	<h2> Homepage </h2>
+
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+  <script src="/static/js/jquery.js" type="text/javascript"> </script>
+  <script type=text/javascript>
+    $(function() {
+      $('a#calculate').bind('click', function() {
+        $.getJSON("{{url_for('add_numbers')}}", {
+          a: $('input[name="a"]').val(),
+          b: $('input[name="b"]').val()
+        }, function(data) {
+          $("#result").text(data.result);
+        });
+        return false;
+      });
+    });
+  </script>
+  <h1>jQuery Example</h1>
+  <p><input type=text size=5 name=a> +
+     <input type=text size=5 name=b> =
+     <span id=result>?</span>
+  <p><a href=# id=calculate>calculate server side</a>
+  </body>
+</html>

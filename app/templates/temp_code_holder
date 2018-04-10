@@ -1,0 +1,23 @@
+<div class="close" onclick="close_display('h')"><label>x</label></div>
+                {% for handset in hs %}
+                    {% set hid ='h'+handset.harid|string %}
+                    {% set qty = handset.harid|string +'qty' %}
+                    <label id="uctype_label">
+                        <input id="{{hid}}" type="radio" name="{{handset.description}}" > {{handset.description}} 
+                    </label>
+                    <input class="item_qty" type="number" name="{{qty}}" placeholder="qty" min="0" size="4" />
+                    <br>
+                {% endfor %}
+
+
+
+
+
+
+
+This was in equipments.html css style
+div {
+
+	margin: 30px;
+}
+

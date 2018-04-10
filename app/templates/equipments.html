@@ -1,0 +1,159 @@
+{% extends "layout.html" %}
+
+{% block css %}
+
+<style type="text/css">
+
+	img {
+		position: static;
+		float: left;
+	}
+
+
+	table {
+		position: static;
+		clear:both;
+		width:80%;
+		background:#ffffff;
+		font-family: Calibri;
+		border: 2px solid black;
+	}
+
+	td {
+		border: 1px solid black;
+	}
+
+	.block1 {
+		padding: 50px;
+	}
+
+	.sub_head {
+		background:#aa79dc;
+		border: 1px solid black;
+
+	}
+
+	.head {
+
+		font-family: Calibri;
+		font-weight: bold;
+		font-size: 14;
+		color: #ffffff;
+		background:#8240c6;
+
+	}
+
+</style>
+
+{% endblock%}
+
+{% block main %}
+ 
+<div class="block1" >
+
+	<img src="{{url_for('static', filename='MCWBusiness.jpeg')}}" width="300" height="200">
+
+	<table>
+	  <tr class="head">
+	    <th>Description</th>
+	    <th>Unit Cost</th>
+	    <th>Annual Support Cost</th>
+	    <th>Quantity</th>
+	  </tr>
+	  <tr>
+	  		<th class="sub_head">Handsets</th>
+	  		<td colspan="3" style="border: none;"></td>
+	  </tr>
+	   {% for result in results %}
+	   		{% if result[1] == "h" %}
+            <tr>
+	  			<td>{{result[0].description}}</td>
+		  		<td>{{result[0].unitcost}}</td>
+		  		<td>{{result[0].supportcost}}</td>
+		  		<td> <input type = "number" name="quantity" value="{{quantity}}" /></td>
+	  		</tr> 
+	  		{% endif %}
+        {% endfor %}
+	  <tr>
+	  		<th class="sub_head"> Audiocodes Voice Gateways</th>
+	  		<td colspan="3" style="border: none;"></td>
+	  </tr> 
+	   {% for result in results %}
+	   		{% if result[1] =="a" %}
+            <tr>
+	  			<td>{{result[0].description}}</td>
+		  		<td>{{result[0].unitcost}}</td>
+		  		<td>{{result[0].supportcost}}</td>
+		  		<td> <input type = "number" name="quantity" value="" /></td>
+	  		</tr> 
+	  		{% endif %}
+        {% endfor %}
+	  <tr>
+	  		<th class="sub_head"> Plantronics Headsets*/Accessories</th>
+	  		<td colspan="3" style="border: none;"></td>
+	  </tr> 
+	    {% for result in results %}
+	   		{% if result[1] =="p" %}
+            <tr>
+	  			<td>{{result[0].description}}</td>
+		  		<td>{{result[0].unitcost}}</td>
+		  		<td>{{result[0].supportcost}}</td>
+		  		<td> <input type = "number" name="quantity" value="" /></td>
+	  		</tr> 
+	  		{% endif %}
+        {% endfor %}
+	   <tr>
+	  		<th class="total"> Total</td>
+	  		<th id="total_val" style="column-span: 3"> $&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+	  </tr> 
+
+	</table>
+	
+</div>
+{% endblock %}
+{% block added %}
+	<p>Observations:
+		<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;* 
+		One Month Warranty
+	</p>
+{% endblock%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

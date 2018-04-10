@@ -1,0 +1,193 @@
+{% extends "layout.html" %}
+
+{% block css %}
+
+<style type="text/css">
+
+	img {
+
+		position: absolute;
+		left:10px;
+	}
+
+	table {
+		position: absolute;
+		top:200px;
+		left: 100px; 
+		width:80%;
+		background:#ffffff;
+		font-family: Calibri;
+		border: 1px solid black;
+	}
+
+	td {
+		border: 1px solid black;
+	}
+
+	div {
+
+		margin: 30px;
+
+	}
+
+	.block1 {
+
+		padding-bottom: 50px;
+	}
+
+
+	.total {
+		background:#ffffff;
+		font-family: Calibri;
+	}
+
+	.special {
+
+		background: #8240c6;
+		color: white;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.grey {
+
+		background: #e8e8e8;
+		text-align: right;
+		font-weight: bold;
+	}
+
+	.td {
+
+		border: none;
+	}
+
+	.r_td {
+		text-align:right; 
+		border: none;
+	}
+
+	#key_r {
+
+		position: absolute;
+		top:420px;
+		left: 1200px; 
+		width:30%;
+		font-family: Calibri;
+		margin:50px;
+	}
+
+	#margin {
+
+		color: #7a3db9;
+		text-align: center;
+		font-weight: bold;
+		border: none;
+	}
+
+	#prcnt{
+
+		text-align: center;
+	}
+
+	#s_val {
+		color: red;
+	}
+
+	#mrc {
+
+		background: #e8e8e8;
+	}
+
+</style>
+
+{% endblock%}
+
+{% block body %}
+ 
+<div class="block1">
+
+	<img src="{{url_for('static', filename='MCWBusiness.jpeg')}}" width="300" height="200">
+
+	<h2> Welcome to UC Pricing Tool MRC page</h2>
+
+	<table>
+	  <tr>
+	    <th>Description</th>
+	    <td></td>
+	  </tr>
+	   <tr>
+	    <td>&nbsp;</td>
+	    <td></td>
+	  </tr>
+	   <tr>
+	    <td>Contract Term</td>
+	    <td class="special">36</td>
+	  </tr>
+	   <tr>
+	    <td>Mark-up</td>
+	    <td class="special">67%</td>
+	  </tr>
+	   <tr>
+	    <td>&nbsp;</td>
+	    <td></td>
+	  </tr>
+	   <tr>
+	    <th>Investment</th>
+	    <td></td>
+	  </tr>
+	    <tr>
+	    <td>Hardware</td>
+	    <td class="grey">$7,834.00</td>
+	  </tr>
+	    <tr>
+	    <th>Total Investment</th>
+	    <td class="grey">$7,834.00</td>
+	  </tr>
+	    <tr>
+	    <td>&nbsp;</td>
+	    <td> </td>
+	  </tr>
+	   <tr>
+	    <td>CSI leasing rate</td>
+	    <td id="prcnt">4%</td>
+	  </tr>
+	  <tr>
+	    <td>&nbsp;</td>
+	    <td></td>
+	  </tr>
+	  <tr>
+	    <th id="mrc">MRC Equipment</th>
+	    <th class="grey">$46.00</th>
+	  </tr>
+	  <tr>
+	    <td class="grey">&nbsp;</td>
+	    <td class="grey"></td>
+	  </tr>
+	</table>
+
+	<table id="key_r"> 
+	  <tr>
+	    <th class="special" colspan="2">Key Ratios</th>
+	  </tr>
+	  <tr>
+	    <td class="r_td">$248</td>
+	    <td class="td">MRR</td>
+	  </tr>
+	   <tr>
+	    <td class="r_td" id="s_val">($148.33)</td>
+	    <td class="td">Capital Cost</td>
+	  </tr>
+	   <tr>
+	    <td class="r_td">$676</td>
+	    <td class="td">Margin (Numerical)</td>
+	  </tr>
+	  <tr>
+	    <td class="r_td">67.00%</td>
+	    <td class="td">Margin (Percentage)</td>
+	  </tr>
+	  <tr>
+	    <td id="margin" colspan="2">Appropriate Margin</td>
+	  </tr>
+	</table>
+</div>
+{% endblock %}

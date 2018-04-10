@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block css %}
+<style type="text/css">
+
+   body {
+
+      background: #c1adf7;
+
+   }
+
+</style>
+{% endblock%}
+
+{% block main %}
+  <script type="text/javascript">
+   window.onload=info
+  </script>
+   {% for hw in results %}
+      {{hw.unitcost}}
+   {% endfor %}
+
+   <p></p>
+
+{% endblock %}

@@ -1,0 +1,220 @@
+{% extends "layout.html" %}
+
+{% block css %}
+
+<style type="text/css">
+
+    .subheading {
+        font-family: Calibri;
+
+    }
+
+    .form1 {
+        margin: auto;
+        width: 80%;
+        border: 1px solid #eec7e1;
+        background: #90d5ef;
+    }
+
+    img {
+        position: relative;
+        border-radius: 5%;
+    }
+
+    .motto {
+        color: #4a318d;
+        font-weight: bold;
+        font-family: Arial;
+    }
+
+    .hdescription {
+        position: relative;
+        display: none;
+        box-shadow: 0px 20px 20px 20px rgba(0,0,0,0.2);
+        background: #c1adf7;
+    }
+
+    .close {
+        position: absolute;
+        right:0;
+        display: inline-block;
+        background: #90d5ef;
+        color: red;
+        border: 2px solid red;
+    }
+
+    .mndtry {
+
+        display: inline-block;
+    }
+
+    .optional {
+
+        display: inline-block;
+    }
+
+    .item_qty{
+        width:3em;
+    }
+
+    #submit {
+
+        background: #8240c6;
+        color: #90d5ef;
+    }
+
+    #ucttype {
+        position: absolute;
+        /*display: none;*/
+        bottom: 0px;
+        left: 800px;
+    }
+
+</style>
+
+{% endblock%}
+
+{% block main %}
+<script type="text/javascript">
+    window.onload=hide_sometime
+</script>
+ <script type=text/javascript>
+    $(document).ready(function() {
+      $('#Regular,#Mid-range,#Executive,#Conference').bind('click', function() {
+        var r=$('#Regular').is(':checked');
+        var m=$('#Mid-Range').is(':checked');
+        var e=$('#Executive').is(':checked');
+        var c=$('#Conference').is(':checked');
+        var choice=String(r)+","+String(m)+","+String(e)+","+String(c);
+        $.getJSON("{{url_for('uw')}}", {
+          r: r,
+          m: m,
+          e: e,
+          c: c,
+          u:choice
+        }, function(data) {
+            data.handset_cat[0]=r;
+            data.handset_cat[1]=m;
+            data.handset_cat[2]=e;
+            data.handset_cat[3]=c;
+          $("#ucttype").val(data.handset_cat);
+          $("#uctype_label").html("");
+          $.each(data.handset, function( index, value ) {
+            $("#uctype_label").append(  $("<label > <input id="+String(index)+" type='radio' name='"+String(value)+"'> " +String(value)+
+                "</label> <input class='item_qty' type='number' name='qty' placeholder='qty' min='0' size='4' /><br>"));
+            });
+        });
+        return;
+      });
+    });
+</script>
+<h2> Welcome to UC Pricing Tool Get_Info page</h2>
+
+<div>
+    <img src="{{url_for('static', filename='MCWBusiness.jpeg')}}" width="300" height="200">
+</div>
+
+
+<div class="form1">
+    <form name = "firstform" method="post" action="{{url_for('hardware')}}">
+        <div>
+            <label class = "subheading"> Number Of Location :</label>
+            <input type = "number" name="locationno" min ="1" max ="2" onload="getnumLocation()" oninput="getnumLocation()" required />
+        </div>
+        <div class = "mndtry">
+            <label class = "subheading">#of Users for Location 1 :</label> 
+            <input type="number" name="userno1" min="1" />
+        </div>
+        <div class = "mndtry"> 
+            <label class = "subheading"># of Distribution Points:</label> 
+            <input type="number" name="distpt1" min="1"/>
+        </div>
+        <div class="optional">
+            <label class = "subheading"># of Users for Location 2 :</label>
+            <input type = "number" name="userno2" min="1" value = 0/>
+        </div>
+        <div class="optional">
+            <label class = "subheading"># of Distribution Points:</label>
+            <input type="number" name="distpt2" min="1" />
+        </div>
+        <div>
+            <label class = "subheading">What type of handsets will you be using:</label><br>
+            <label><input id="Regular" type="checkbox" > Regular</label>
+            <label><input id="Mid-Range" type="checkbox" > Mid-range</label>
+            <label><input id="Executive" type="checkbox" > Executive</label>
+            <label><input id="Conference" type="checkbox" > Conference</label>
+        </div>
+        <div>
+            <label class = "subheading">Do you presently have Trunks?</label>
+            <input type="radio" name="choice" value="yes">Yes <input type="radio" name="choice" value="no"> No
+        </div>
+        <div>
+            <label class = "subheading">Trunk Type:</label> 
+            <select name = "trunktype">
+                <option value = "Analog">Analog</option>
+                <option value = "SIP">SIP</option>
+                <option value = "Analog">E1/T1</option>
+            </select>
+        </div>
+         <div>
+            <label class = "subheading">Number Of Trunks And Number of Extensions :</label>
+            <select name = "nooftrunk">
+                <option value = "2 x 5">2 x 5</option>
+                <option value = "2 x 10">2 x 10</option>
+                <option value = "3 x 10">3 x 10</option>
+                <option value = "4 x 20">4 x 20</option>
+                <option value = "5 x 25">5 x 25</option>
+                <option value = "6 x 30">6 x 30</option>
+                <option value = "7 x 35">7 x 35</option>
+                <option value = "8 x 40">8 x 40</option>
+                <option value = "9 x 45">9 x 45</option>
+                <option value = "10 x 50">10 x 50</option>
+            </select>
+        </div>
+        <label>Select the hardware category/ies you wish to choose from</label> 
+        <div>
+            <label onclick="display_in_category('h')"> <input type="checkbox" id="h"> Handsets</label><br>
+            <div class="hdescription">
+                <div class="close" onclick="close_display('h')"><label>x</label></div>
+                <div id="uctype_label"></div>
+            </div>
+            <label onclick ="display_in_category('a')"><input type="checkbox" id="a"> Audiocodes Voice Gateways</label><br>
+            <div class="hdescription">
+                <div class="close" onclick="close_display('a')"><label>x</label></div>
+                {% for gateway in gateways %}
+                    {% set gid ='a'+gateway.gateid|string %}
+                    <label>
+                        <input id="{{gid}}" type="radio" name="{{gateway.description}}" onclick="check_radio()"> {{gateway.description}}
+                    </label>
+                    <input class='item_qty' type='number' name='qty' placeholder='qty' min='0' size='4' />
+                    <br>
+                {% endfor %}
+            </div>
+            <label onclick="display_in_category('p')"><input type="checkbox" id="p"> Plantronics Headsets*/Accessories</label><br>
+             <div class="hdescription" >
+                <div class="close" onclick="close_display('p')"><label>x</label></div>
+                {% for handset in handsets %}
+                    {% set hid ='p'+handset.harid|string %}
+                    {% if handset.ttype == "Accessory" %}
+                    <label>
+                        <input id="{{hid}}" type="radio" name="{{handset.description}}" > {{handset.description}}
+                    </label>
+                    <input class='item_qty' type='number' name='qty' placeholder='qty' min='0' size='4' />
+                    <br>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div>
+            <label class = "subheading">Choose the type of switch:</label><br>
+            <input type="radio" name="switch" > Switch 1<br>
+            <input type="radio" name="switch"> Switch 2<br>
+        </div>
+        </br>
+        </br>
+        <input id="submit" type = "submit">
+        <input id="ucttype" name="ucttype" value="?">
+    </form>
+</div>
+{% endblock %}
+{% block added %}<div class="motto">Talent that Powers Our Solutions</div>{% endblock %}

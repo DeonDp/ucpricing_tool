@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+
+
+{% block css %}
+
+<style type="text/css">
+
+  
+	img {
+
+		position: static;
+		display: block;
+	}
+
+	.block1{
+		display: inline-block;
+		margin: 50px;
+		padding: 20px;
+		width: 300px;
+		border: 1px solid black;
+		background: #734998;
+		color: white;
+	}
+
+</style>
+
+{% endblock%}
+{% block main%}
+
+<img src="{{url_for('static', filename='MCWBusiness.jpeg')}}" width="300" height="200">
+<div class="block1">Request for New Service</div>
+<div class="block1">Request for Addition to existing Service</div>
+
+{% endblock %}

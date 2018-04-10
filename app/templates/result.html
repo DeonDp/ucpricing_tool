@@ -1,0 +1,338 @@
+{% extends "layout.html" %}
+
+
+{% block css %}
+
+<style type="text/css">
+
+	table {
+
+		background:#e6e3e3;
+		font-family: Calibri;
+		margin-bottom: 50px;
+	}
+
+	th {
+
+		border: 1px solid black;
+		width:80%;
+
+	}
+
+	img {
+
+		position: static;
+	}
+
+	div {
+
+		margin: 30px;
+		padding-bottom: 50px;
+	}
+
+	table.equipment {
+
+		background:#ffffff;
+		font-family: Calibri;
+	}
+
+	.block1 {
+
+		padding-bottom: 50px;
+	}
+
+
+
+	td.equipment {
+
+		background:#a3d5f5;
+		font-family: Calibri;
+	}
+
+	.left {
+
+		position: absolute;
+		top: 80px;
+    	left: 10px;
+	}
+
+	.right {
+
+		position: absolute;
+		top: 80px;
+    	right: 10px;
+	}
+
+	.head {
+
+		font-family: Calibri;
+		font-weight: bold;
+		font-size: 14;
+		color: #ffffff;
+		background:#8240c6;
+	}
+
+	.info {
+
+		font-family: Calibri;
+		font-weight: bold;
+		font-size: 14;
+		color: #000000;
+	}
+
+	.bill {
+
+		background:#ffffff;
+		position: relative;
+    	left: 250px;
+		width:65%;
+		text-align: center;
+		border: 1px solid black;
+
+	}
+
+	.bill_summary {
+
+		background:#ffffff;
+		position: relative;
+    	left: 250px;
+		width:65%;
+		text-align: center;
+		border: 1px solid black;
+
+	}
+
+	.location {
+
+		position: absolute;
+		text-decoration: underline;
+    	left: 350px;
+    	width:100px;
+    	height:40px;
+    	border: 1px solid black;
+    	background: grey;
+	}
+
+	.equipment {
+
+		position: absolute;
+    	left: 500px;
+	}
+
+	#cp {
+
+		text-align: right;
+		font-family: Calibri;
+		font-weight: bold;
+		font-size: 14;
+		color: #c640c5;
+	}
+
+	#solution_discription {
+
+		background:#e6e3e3;
+		font-style: italic; 
+
+	}
+
+</style>
+
+{% endblock%}
+
+{% block body %}
+ 
+<div class="block1">
+
+	<img src="{{url_for('static', filename='MCWBusiness.jpeg')}}" width="300" height="200">
+
+	<h2> Welcome to UC Pricing Tool Results page </h2>
+
+	<table class="left">
+	  <tr>
+	    <td class="head">Sales Engineer:</td>
+	    <td class ="info">Terecia Anderson</td>
+	  </tr>
+	  <tr>
+	    <td class="head">Account Manager:</td>
+	    <td class ="info">Jim Jones</td>
+	  </tr>
+	  <tr>
+	    <td class="head">Contract Period</td>
+	    <td id="cp">36 months</td>
+	  </tr>
+	</table>
+
+	<table class="right">
+	  <tr>
+	    <td class="head">Grand Total MRR(USD)</td>
+	    <td class ="info">$ -</td>
+	  </tr>
+	  <tr>
+	    <td class="head">Grand Total NRR(USD)</td>
+	    <td class ="info">$   -</td>
+	  </tr>
+	  <tr>
+	    <td class="head">Profit Margin</td>
+	    <td class ="info">0.00</td>
+	  </tr>
+	</table>
+
+
+	<table class="bill">
+	  <tr>
+	    <th>Bill of Materials (BOM) for Customer NameofCustomer By Provider Cable & Wireless Business</th>
+	  </tr>
+	  <tr>
+	    <th>Insert name of Product</th>
+	  </tr>
+	</table>
+	<div>
+		<!--<img style="border: 1px solid black" class ="location" src="{{url_for('static', filename='flow.jpeg')}}" width="70" height="40"> </td>-->
+		<div class="location"> insert location </div>
+		<table class="equipment">
+		  <tr>
+		    	<td>Quantity</td>
+		    	<td>Equipment Type</td>
+		    	<td>Model</td>
+		    	<td>SKU</td>
+		    	<td>Unit price (USD)</td>
+		    	<td>MRR (USD)</td>
+		    	<td>NRR (USD)</td>
+		   </tr>
+		   <tr>
+		   		<td>&nbsp;</td>
+		    	<td>Insert Equipment Type</td>
+		    	<td>&nbsp;</td>
+	    		<td>&nbsp;</td>
+		    	<td>$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</td>
+	    		<td>$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</td>
+		    	<td>$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</td>
+	  		</tr>
+	  		<tr>
+		   		<td>&nbsp;</td>
+		    	<td>Insert Equipment Type</td>
+		    	<td>&nbsp;</td>
+	    		<td>&nbsp;</td>
+		    	<td>$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</td>
+	    		<td>$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</td>
+		    	<td>$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</td>
+	  		</tr>
+	  		<tr>
+		   		<td>&nbsp;</td>
+		    	<td>Insert Equipment Type</td>
+		    	<td>&nbsp;</td>
+	    		<td>&nbsp;</td>
+		    	<td>$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</td>
+	    		<td>$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</td>
+		    	<td>$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</td>
+	  		</tr>
+	  		<tr>
+		   		<td>&nbsp;</td>
+		    	<td>Insert Equipment Type</td>
+		    	<td>&nbsp;</td>
+	    		<td>&nbsp;</td>
+		    	<td>$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</td>
+	    		<td>$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</td>
+		    	<td>$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</td>
+	  		</tr>
+	  		<tr>
+		   		<td>&nbsp;</td>
+		    	<td>Insert Equipment Type</td>
+		    	<td>&nbsp;</td>
+	    		<td>&nbsp;</td>
+		    	<td>$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</td>
+	    		<td>$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</td>
+		    	<td>$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-</td>
+	  		</tr>
+	   </table>
+	</div>
+	  
+	
+	  	
+	  
+	 <!-- <td>E_data</td>
+		    	<td>M_data</td>
+		    	<td>SKU_data</td>
+		    	<td>Unitprice_data</td>
+		    	<td>MRR_data</td>
+		    	<td>NRR_data</td>-->
+
+	<br/><br/><br/><br/><br/><br/><br/><br/>
+
+	<table class="bill_summary">
+	  <tr>
+	    <th>NameofCustomer Equipment Summary</th>
+	  </tr>
+	  <tr>
+	    <th>Insert name of Product</th>
+	  </tr>
+	    	
+	  <tr>
+	   	<td id="solution_discription">
+	   		Discription of Solution
+	   	</td>
+	  </tr>
+	</table>
+
+	<div>
+		<!--<img style="border: 1px solid black" class ="location" src="{{url_for('static', filename='flow.jpeg')}}" width="70" height="40"> </td>-->
+		<div class="location"> insert location </div>
+		<table class="equipment">
+		  <tr>
+		    	<td>Quantity</td>
+		    	<td>Equipment Type</td>
+		    	<td>SKU</td>
+		    	<td>Model</td>
+		   </tr>
+		    <tr>
+		    	<td>0</td>
+		    	<td>Insert Equipment Type</td>
+		    	<td>0</td>
+	    		<td>0</td>
+	  		</tr>
+	  		 <tr>
+		    	<td>0</td>
+		    	<td>Insert Equipment Type</td>
+		    	<td>0</td>
+	    		<td>0</td>
+	  		</tr>
+	  		 <tr>
+		    	<td>0</td>
+		    	<td>Insert Equipment Type</td>
+		    	<td>0</td>
+	    		<td>0</td>
+	  		</tr>
+	  		 <tr>
+		    	<td>0</td>
+		    	<td>Insert Equipment Type</td>
+		    	<td>0</td>
+	    		<td>0</td>
+	  		</tr>
+	  		 <tr>
+		    	<td>0</td>
+		    	<td>Insert Equipment Type</td>
+		    	<td>0</td>
+	    		<td>0</td>
+	  		</tr>
+	  		 <tr>
+		    	<td>0</td>
+		    	<td>Insert Equipment Type</td>
+		    	<td>0</td>
+	    		<td>0</td>
+	  		</tr>
+	  		 <tr>
+		    	<td>0</td>
+		    	<td>Insert Equipment Type</td>
+		    	<td>0</td>
+	    		<td>0</td>
+	  		</tr>
+	  		 <tr>
+		    	<td>0</td>
+		    	<td>Insert Equipment Type</td>
+		    	<td>0</td>
+	    		<td>0</td>
+	  		</tr>
+	   	</table>
+	</div>
+</div>
+{% endblock %}

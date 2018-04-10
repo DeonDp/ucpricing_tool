@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block css %}
+
+<style type="text/css">
+
+    .subheading {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 150%;
+    }
+
+    .form1 {
+        margin: auto;
+        width: 50%;
+        
+    }
+
+</style>
+
+{% endblock%}
+
+{% block body %}
+
+<div class="form1">
+    <form name = "firstform">
+        <div>
+        <div class = "subheading"> Number Of Location :</div>
+        <input type = "number" name="locationno" min ="1" max ="2"/>
+        </div>
+        <div class = "subheading">The Number of Users for Location 1 :</div>
+        <input type="number" name="userno1"/>
+        <div class = "subheading">The Number of Users for Location 2 :</div>
+        <input type = "number" name="userno2" value = 0/>
+        <div class = "subheading">The number of Distribution Points:</div>
+        <input type="number" name="distpt"/>
+        <div class = "subheading">Trunk Type:</div>
+        <select name = "trunktype">
+            <option value = "Analog">Analog</option>
+            <option value = "SIP">SIP</option>
+        </select>
+        <div class = "subheading">Number Of Trunks And Number of Extensions :</div>
+        <select name = "nooftrunk">
+            <option value = "2 x 5">2 x 5</option>
+            <option value = "2 x 10">2 x 10</option>
+            <option value = "3 x 10">3 x 10</option>
+            <option value = "4 x 20">4 x 20</option>
+            <option value = "5 x 25">5 x 25</option>
+            <option value = "6 x 30">6 x 30</option>
+            <option value = "7 x 35">7 x 35</option>
+            <option value = "8 x 40">8 x 40</option>
+            <option value = "9 x 45">9 x 45</option>
+            <option value = "10 x 50">10 x 50</option>
+        </select>
+        </br>
+        </br>
+        <input type = "submit">
+    </form>
+</div>
+{% endblock %}
